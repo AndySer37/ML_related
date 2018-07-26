@@ -5,7 +5,7 @@ import cv2
 import random
 from PIL import Image
 # number 1 to 10 data
-mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
+#mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
  
 #定義準確度函數 如果不懂這部份代碼看完前面MNIST教學 應該就懂了
 def compute_accuracy(v_xs, v_ys):
@@ -163,5 +163,4 @@ for i in range(1000):
     for j in range(int(len(label_list)/100)):
         img , label = sess.run(el)
         sess.run(train_step, feed_dict={xs:img, ys:label, keep_prob: 0.5})
-    if i % 50 == 0:
-        print(compute_accuracy(img_test, label_test))
+    print(compute_accuracy(img_test, label_test))

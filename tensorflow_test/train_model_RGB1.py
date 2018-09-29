@@ -132,15 +132,15 @@ label_list = np.asarray(label_list)
 
 
 dataset = tf.data.Dataset.from_tensor_slices((img_list,label_list))
-dataset = dataset.batch(1)
+dataset = dataset.batch(100)
 dataset = dataset.shuffle(buffer_size=2)
 
 iter = dataset.make_initializable_iterator()
 el = iter.get_next()
 
-for i in range(100):
+for i in range(1000):
     sess.run(iter.initializer)
-    for j in range(int(len(label_list)/10)):
+    for j in range(int(len(label_list)/100)):
         img , label = sess.run(el)
         #print(label)
         sess.run(train_step, feed_dict={xs:img, ys:label, keep_prob: 0.5})

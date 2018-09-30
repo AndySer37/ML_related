@@ -33,7 +33,7 @@ class CNN(nn.Module):
         x = self.conv2(x)
         x = x.view(x.size(0), -1)
         output = self.out(x)
-        return output
+        return output ,x
 
 cnn = CNN()
 
@@ -69,7 +69,7 @@ for epoch in range(EPOCH):
         optimizer.step()
 
         if step % 50 == 0:
-            test_output = cnn(test_x)
+            test_output,last_layer = cnn(test_x)
 
             # !!!!!!!! Change in here !!!!!!!!! #
             pred_y = torch.max(test_output, 1)[1].cuda().data.squeeze()  # move the computation in GPU

@@ -83,8 +83,8 @@ for epoch in range(EPOCH):
                 # Visualization of trained flatten layer (T-SNE)
                 tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)
                 plot_only = 500
-                low_dim_embs = tsne.fit_transform(last_layer.data.numpy()[:plot_only, :])
-                labels = test_y.numpy()[:plot_only]
+                low_dim_embs = tsne.fit_transform(last_layer.data.cpu().numpy()[:plot_only, :])
+                labels = test_y.cpu().numpy()[:plot_only]
                 plot_with_labels(low_dim_embs, labels)
 
 test_output = cnn(test_x[:10])

@@ -62,7 +62,7 @@ for epoch in range(EPOCH):
         b_x = x.cuda()    # Tensor on GPU
         b_y = y.cuda()    # Tensor on GPU
 
-        output = cnn(b_x)
+        output = cnn(b_x)[0]
         loss = loss_func(output, b_y)
         optimizer.zero_grad()
         loss.backward()

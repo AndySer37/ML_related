@@ -50,7 +50,7 @@ def plot_with_labels(lowDWeights, labels):
     for x, y, s in zip(X, Y, labels):
         c = cm.rainbow(int(255 * s / 9)); plt.text(x, y, s, backgroundcolor=c, fontsize=9)
     plt.xlim(X.min(), X.max()); plt.ylim(Y.min(), Y.max()); plt.title('Visualize last layer'); plt.show(); plt.pause(0.01)
-
+plt.ion()
 
 optimizer = torch.optim.Adam(cnn.parameters(), lr=LR)
 loss_func = nn.CrossEntropyLoss()
@@ -86,6 +86,7 @@ for epoch in range(EPOCH):
                 low_dim_embs = tsne.fit_transform(last_layer.data.cpu().numpy()[:plot_only, :])
                 labels = test_y.cpu().numpy()[:plot_only]
                 plot_with_labels(low_dim_embs, labels)
+plt.ioff()
 
 test_output = cnn(test_x[:10])
 

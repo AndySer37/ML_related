@@ -8,7 +8,7 @@ import torchvision
 EPOCH = 1
 BATCH_SIZE = 50
 LR = 0.001
-DOWNLOAD_MNIST = False
+DOWNLOAD_MNIST = True
 
 train_data = torchvision.datasets.MNIST(root='./mnist/', train=True, transform=torchvision.transforms.ToTensor(), download=DOWNLOAD_MNIST,)
 train_loader = Data.DataLoader(dataset=train_data, batch_size=BATCH_SIZE, shuffle=True)

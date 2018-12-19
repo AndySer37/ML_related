@@ -101,36 +101,11 @@ sess.run(tf.global_variables_initializer())
 img_test = []
 label_test = []
 fp = open('little/test.txt', "r")
+# little/?.jpg 3
 
 line = fp.readline()
-while line:
-    lab = np.zeros(15,dtype = np.float32)
-    mid = line.find(".jpg")+4
-    lab[int(line[mid:len(line)])] = 1
-    img = cv2.imread(line[0:mid])
-    img = cv2.resize(img,dsize=(101,101))
-    img_test.append(img)
-    label_test.append(lab)
-    line = fp.readline()
-img_test = np.asarray(img_test,dtype=np.float32)
-label_test = np.asarray(label_test)
 
 
-img_list = []
-label_list = []
-fp = open('little/train.txt', "r")
-line = fp.readline()
-while line:
-    lab = np.zeros(15,dtype = np.float32)
-    mid = line.find(".jpg")+4
-    lab[int(line[mid:len(line)])] = 1
-    img = cv2.imread(line[0:mid])
-    img = cv2.resize(img,dsize=(101,101))
-    img_list.append(img)
-    label_list.append(lab)
-    line = fp.readline()
-img_list = np.asarray(img_list,dtype=np.float32)
-label_list = np.asarray(label_list)
 
 
 dataset = tf.data.Dataset.from_tensor_slices((img_list,label_list))

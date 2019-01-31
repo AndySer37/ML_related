@@ -56,6 +56,8 @@ plt.ion()   # something about plotting
 
 for t in range(100):
     out = net(x)                 # input x and predict based on x
+    print out
+    print y
     loss = loss_func(out, y)     # must be (1. nn output, 2. target), the target label is NOT one-hotted
 
     optimizer.zero_grad()   # clear gradients for next train

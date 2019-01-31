@@ -97,6 +97,7 @@ for epoch in range(EPOCH):
     for step, (b_x, b_y) in enumerate(train_loader):   # gives batch data, normalize x when iterate train_loader
 
         output = cnn(b_x)[0]               # cnn output
+        print output,b_y
         loss = loss_func(output, b_y)   # cross entropy loss
         optimizer.zero_grad()           # clear gradients for this training step
         loss.backward()                 # backpropagation, compute gradients

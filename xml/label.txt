@@ -1,0 +1,4 @@
+brand_list = ['background','3m', 'andes', 'cocacola', 'crayola','folgers','heineken','hunts','kellogg','kleenex',\
+        'kotex','libava','macadamia','milo','mm','pocky','raisins','stax','swissmiss','vanish','viva','barcode']
+
+Divide each pixel value by 12 to obtain label range [0,21]

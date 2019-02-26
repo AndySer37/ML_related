@@ -1,3 +1,6 @@
 torch_test/mnist
 barcode*/
 data/
+*.jpg
+*.png
+*.xml

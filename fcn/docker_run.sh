@@ -19,5 +19,5 @@ then
     docker run -it --rm -v /home/$USER:/hosthome -p 8888:8888 -w ${goal_dir} pytorch-jupyter 
 else
     printf "Run \"nvidia-docker\"\n"
-    nvidia-docker run -it --rm -v /home/$USER:/hosthome -p 8888:8888 -w ${goal_dir} pytorch-jupyter 
+    nvidia-docker run -it --rm -v /home/$USER:/hosthome -p 8888:8888 -w ${goal_dir} andyser/pytorch 
 fi

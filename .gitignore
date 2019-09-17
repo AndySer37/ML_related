@@ -1,6 +1,9 @@
 torch_test/mnist
+models/
+scores/
 barcode*/
 data/
+.ipynb_checkpoints/
 *.jpg
 *.png
 *.xml

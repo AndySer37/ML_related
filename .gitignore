@@ -5,5 +5,7 @@ barcode*/
 data/
 .ipynb_checkpoints/
 *.jpg
+*.pth
+*.pkl
 *.png
 *.xml
